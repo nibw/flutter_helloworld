@@ -71,31 +71,78 @@ void main() {
 // ====================CHAPTER 5====================
 // ====================Container Widget====================
 
-class MyApp extends StatelessWidget {
+// class MyApp extends StatelessWidget {
+//   const MyApp({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: Text("Latihan Container"),
+//         ),
+//         body: Container(
+//           color: Colors.red,
+//           margin: EdgeInsets.fromLTRB(10, 20, 30, 40),
+//           padding: EdgeInsets.only(top: 10, bottom: 20),
+//           child: Container(
+//             margin: EdgeInsets.all(10),
+//             decoration: BoxDecoration(
+//               borderRadius: BorderRadius.circular(20),
+//                 gradient:
+//                     LinearGradient(
+//                       begin: Alignment.topLeft,
+//                       end: Alignment.bottomRight,
+//                       colors: [Colors.amber, Colors.blue])),
+//             // color: Colors.blue,
+//             // margin: EdgeInsets.all(10),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// ====================CHAPTER 6====================
+// ====================Stateless & Stateful Widget====================
+
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int number = 0;
+  void tekanTombol() {
+    setState(() {
+      number = number + 1;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Latihan Container"),
+          title: Text("Stateful Widget Demo"),
         ),
-        body: Container(
-          color: Colors.red,
-          margin: EdgeInsets.fromLTRB(10, 20, 30, 40),
-          padding: EdgeInsets.only(top: 10, bottom: 20),
-          child: Container(
-            margin: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-                gradient:
-                    LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [Colors.amber, Colors.blue])),
-            // color: Colors.blue,
-            // margin: EdgeInsets.all(10),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                number.toString(),
+                style: TextStyle(
+                    fontSize:
+                        10 + number.toDouble()), // tambah ukuran font by 1
+              ),
+              ElevatedButton(
+                onPressed: tekanTombol,
+                child: Text("Add value by 1"),
+              )
+            ],
           ),
         ),
       ),
