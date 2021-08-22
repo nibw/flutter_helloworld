@@ -36,6 +36,41 @@ void main() {
 
 // ====================CHAPTER 4====================
 // ====================Row dan Column Widget====================
+// class MyApp extends StatelessWidget {
+//   const MyApp({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: Text("latihan Row dan Column"),
+//         ),
+//         // body : column() => untuk text ke bawah, body : row() => untuk text ke samping
+//         body: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: <Widget>[
+//             Text("Contoh Text 1"),
+//             Text("Contoh Text 2"),
+//             Text("Contoh Text 3"),
+//             Row(
+//               children: <Widget>[
+//                 Text("Contoh Text 4"),
+//                 Text("Contoh Text 5"),
+//                 Text("Contoh Text 6"),
+//               ],
+//             )
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// ====================CHAPTER 5====================
+// ====================Container Widget====================
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -44,24 +79,24 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("latihan Row dan Column"),
+          title: Text("Latihan Container"),
         ),
-        // body : column() => untuk text ke bawah, body : row() => untuk text ke samping
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text("Contoh Text 1"),
-            Text("Contoh Text 2"),
-            Text("Contoh Text 3"),
-            Row(
-              children: <Widget>[
-                Text("Contoh Text 4"),
-                Text("Contoh Text 5"),
-                Text("Contoh Text 6"),
-              ],
-            )
-          ],
+        body: Container(
+          color: Colors.red,
+          margin: EdgeInsets.fromLTRB(10, 20, 30, 40),
+          padding: EdgeInsets.only(top: 10, bottom: 20),
+          child: Container(
+            margin: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+                gradient:
+                    LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [Colors.amber, Colors.blue])),
+            // color: Colors.blue,
+            // margin: EdgeInsets.all(10),
+          ),
         ),
       ),
     );
