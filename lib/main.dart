@@ -106,6 +106,53 @@ void main() {
 // ====================CHAPTER 6====================
 // ====================Stateless & Stateful Widget====================
 
+// class MyApp extends StatefulWidget {
+//   const MyApp({Key? key}) : super(key: key);
+
+//   @override
+//   _MyAppState createState() => _MyAppState();
+// }
+
+// class _MyAppState extends State<MyApp> {
+//   int number = 0;
+//   void tekanTombol() {
+//     setState(() {
+//       number = number + 1;
+//     });
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: Text("Stateful Widget Demo"),
+//         ),
+//         body: Center(
+//           child: Column(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: <Widget>[
+//               Text(
+//                 number.toString(),
+//                 style: TextStyle(
+//                     fontSize:
+//                         10 + number.toDouble()), // tambah ukuran font by 1
+//               ),
+//               ElevatedButton(
+//                 onPressed: tekanTombol,
+//                 child: Text("Add value by 1"),
+//               )
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// ====================CHAPTER 7====================
+// ====================Anonymous Method====================
+
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -114,38 +161,32 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int number = 0;
-  void tekanTombol() {
-    setState(() {
-      number = number + 1;
-    });
-  }
+  String pesan = "ini adalah Text";
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Stateful Widget Demo"),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                number.toString(),
-                style: TextStyle(
-                    fontSize:
-                        10 + number.toDouble()), // tambah ukuran font by 1
-              ),
-              ElevatedButton(
-                onPressed: tekanTombol,
-                child: Text("Add value by 1"),
-              )
-            ],
-          ),
+        home: Scaffold(
+      appBar: AppBar(
+        title: Text("Anonymous Method"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(pesan),
+            OutlinedButton(
+              // disini anonymous method berjalan
+              onPressed: () {
+                setState(() {
+                  pesan = "tombol telah di klik";
+                });
+              },
+              child: Text("tekan saya"),
+            )
+          ],
         ),
       ),
-    );
+    ));
   }
 }
