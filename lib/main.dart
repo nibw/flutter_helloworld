@@ -153,40 +153,83 @@ void main() {
 // ====================CHAPTER 7====================
 // ====================Anonymous Method====================
 
-class MyApp extends StatefulWidget {
+// class MyApp extends StatefulWidget {
+//   const MyApp({Key? key}) : super(key: key);
+
+//   @override
+//   _MyAppState createState() => _MyAppState();
+// }
+
+// class _MyAppState extends State<MyApp> {
+//   String pesan = "ini adalah Text";
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//         home: Scaffold(
+//       appBar: AppBar(
+//         title: Text("Anonymous Method"),
+//       ),
+//       body: Center(
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: <Widget>[
+//             Text(pesan),
+//             OutlinedButton(
+//               // disini anonymous method berjalan
+//               onPressed: () {
+//                 setState(() {
+//                   pesan = "tombol telah di klik";
+//                 });
+//               },
+//               child: Text("tekan saya"),
+//             )
+//           ],
+//         ),
+//       ),
+//     ));
+//   }
+// }
+
+class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  String pesan = "ini adalah Text";
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Scaffold(
-      appBar: AppBar(
-        title: Text("Anonymous Method"),
-      ),
-      body: Center(
-        child: Column(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("latihan Text Style"),
+        ),
+        body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(pesan),
-            OutlinedButton(
-              // disini anonymous method berjalan
-              onPressed: () {
-                setState(() {
-                  pesan = "tombol telah di klik";
-                });
-              },
-              child: Text("tekan saya"),
+          children: 
+          <Widget>[
+            Text(
+              "ini TextStyle 1",
+              style: TextStyle(
+                  fontFamily: "SansSerifBldFLF",
+                  fontSize: 20,
+                  fontStyle: FontStyle.italic,
+                  decoration: TextDecoration.overline,
+                  decorationColor: Colors.red,
+                  decorationThickness: 5,
+                  decorationStyle: TextDecorationStyle.wavy),
+            ),
+            Text(
+              "ini TextStyle 2",
+              style: TextStyle(
+                  fontFamily: "SansSerifBldFLF",
+                  fontSize: 20,
+                  // fontStyle: FontStyle.italic,
+                  decoration: TextDecoration.lineThrough,
+                  decorationColor: Colors.blue,
+                  // decorationThickness: 7,
+                  decorationStyle: TextDecorationStyle.double),
             )
           ],
         ),
       ),
-    ));
+    );
   }
 }
